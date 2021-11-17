@@ -56,16 +56,30 @@ function processRequest( request, response ){
     // method as in the previous step to retrieve the id
     let id = url.searchParams.get("ID");
 
-    // Using an if structure to test if the name is empty or not
-    if (name==''){
+    // Using an if structure to test if the name is empty or not (I don't know if this if statement is correct)
+    if (name===''){
         
     }else{
     // 5.8.1
     response.write("<p>Here is the information you sent to the server.</p>");
-    response.write(`<p>Name: ${name}</p>`);
     
+    // I can't tell if this is what 5.8.2 wants me to do. The code i've written below is what I understood from the 
+    // assignment sheet
+    response.write(createResponseMethod);
+    
+    // 5.9
+    response.end();
+        
     }        
 
+// Implementing the method to create the response paragraphs
+function createResponseText( name, id ){
+    // 6.1 (This is how I understood the instruction form the assignment sheet)
+    let text = (`<p><em>Name:</em><strong>${name}</strong></p><br> <p><em>ID:</em><strong>${id}</strong></p>`);
+    
+    // 6.2
+    return text;
+    }
 
 
 }
